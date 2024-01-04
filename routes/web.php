@@ -44,3 +44,4 @@ Route::post('/register', [UsersController::class, 'create']);
 
 Route::get('/googleLogin', [UsersController::class, 'googleLogin']);
 Route::get('/auth/google/callback', [UsersController::class, 'handleGoogleCallback']);
+Route::get('/logout', [UsersController::class, 'logout'])->name('logout');

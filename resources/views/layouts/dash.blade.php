@@ -29,13 +29,13 @@
                 <img src="images/logo.png" class="font-bold h-10">
             </div>
 
-            {{-- @auth
-            <div class="text-white flex gap-4">
-                <img src="{{ auth()->user()->profile_image_url }}" alt="Profile Image">
+            @auth
+            <div class="text-white flex gap-4 items-center">
+                <img src="{{ auth()->user()->avatar_url }}" alt="Profile Image" class="rounded-full h-10 w-10 object-cover">
                 <label class="button">{{ auth()->user()->firstname }} {{ auth()->user()->lastname }}</label>
-                <a href="/logout" class="button rounded bg-green-500 w-28 h-9 items-center flex justify-center">Logout</a>
+                <a href="{{ route('logout') }}" class="button rounded bg-green-500 w-28 h-9 items-center flex justify-center">Logout</a>
             </div>
-        @endauth --}}
+            @endauth
 
         </nav>
 

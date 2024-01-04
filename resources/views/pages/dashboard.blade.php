@@ -2,7 +2,7 @@
 
 @extends('layouts.dash')
 
-@section('title', 'register')
+@section('title', 'Dashboard')
 
 @section('content')
 
