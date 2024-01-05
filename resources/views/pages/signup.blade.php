@@ -16,7 +16,8 @@
                 class=" w-full flex text-center items-center gap-1 justify-center text-md  mt-3 border rounded  p-2 outline-none ">
                 <button class="flex text-center items-center gap-1 justify-center"><img src="images/google.png" alt=""
                         class="h-4">
-                    <a href="{{URL::to('googleLogin')}}" class="border rounded outline-none border-none"name="google" id="google">Sign up
+                    <a href="{{ URL::to('googleLogin') }}" class="border rounded outline-none border-none"name="google"
+                        id="google">Sign up
                         with Google</a></button>
 
             </div>
@@ -58,9 +59,9 @@
 
                 </div>
                 <div class="mb-4">
-                @error('firstname')
-                <div class="text-red-500">{{ $message }}</div>
-                @enderror
+                    @error('firstname')
+                        <div class="text-red-500">{{ $message }}</div>
+                    @enderror
 
 
                 </div>
@@ -78,11 +79,11 @@
                 </div>
                 <div class="mb-4">
                     @error('lasttname')
-                    <div class="text-red-500">{{ $message }}</div>
+                        <div class="text-red-500">{{ $message }}</div>
                     @enderror
 
 
-                    </div>
+                </div>
                 <div class=" w-full flex text-center  text-md py-2 mt-3">
 
                     <label>Email</label><span class="text-red-700 font-bold px-2"> * </span>
@@ -94,11 +95,11 @@
                 </div>
                 <div class="mb-4">
                     @error('email')
-                    <div class="text-red-500">{{ $message }}</div>
+                        <div class="text-red-500">{{ $message }}</div>
                     @enderror
 
 
-                    </div>
+                </div>
                 <div class=" w-full flex text-center  text-md py-2 mt-3">
 
                     <label>Password</label><span class="text-red-700 font-bold px-2"> * </span>
@@ -108,14 +109,34 @@
                     <input type="password" class="border rounded w-full p-2 outline-none"name="password" id="password"
                         placeholder="Enter your Password">
                 </div>
+                <div class=" w-full flex text-center  text-md py-2 mt-3">
+
+                    <label>Comfirm Password</label><span class="text-red-700 font-bold px-2"> * </span>
+
+                </div>
+                <div class=" w-full flex text-center  text-md ">
+                    <input type="password" class="border rounded w-full p-2 outline-none" name="password_confirmation" id="password" placeholder="Confirm your Password">
+
+                </div>
 
                 <div class="mb-4">
                     @error('password')
-                    <div class="text-red-500">{{ $message }}</div>
+                        <div class="text-red-500">{{ $message }}</div>
                     @enderror
 
 
+                </div>
+
+
+                <div class=" w-full flex text-left  text-md ">
+                    <div class="password-indicators">
+                        <div class="uppercase-indicator">Uppercase letter: <span id="uppercase-indicator"></span></div>
+                        <div class="lowercase-indicator">Lowercase letter: <span id="lowercase-indicator"></span></div>
+                        <div class="number-indicator">Number: <span id="number-indicator"></span></div>
+                        <div class="special-char-indicator">Special character: <span id="special-char-indicator"></span></div>
                     </div>
+
+                </div>
 
                 <div class=" w-full flex text-center  text-md py-3 ">
                     <button type="submit"

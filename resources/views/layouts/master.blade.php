@@ -46,5 +46,42 @@
 
     </div>
 </body>
+<script>
+    const passwordInput = document.getElementById('password');
+    const indicators = {
+        uppercase: document.getElementById('uppercase-indicator'),
+        lowercase: document.getElementById('lowercase-indicator'),
+        number: document.getElementById('number-indicator'),
+        specialChar: document.getElementById('special-char-indicator')
+    };
+
+    passwordInput.addEventListener('input', () => {
+        const password = passwordInput.value;
+
+        // Check for uppercase letter
+        const uppercaseRegex = /[A-Z]/;
+        updateIndicator('uppercase', uppercaseRegex.test(password));
+
+        // Check for lowercase letter
+        const lowercaseRegex = /[a-z]/;
+        updateIndicator('lowercase', lowercaseRegex.test(password));
+
+        // Check for number
+        const numberRegex = /\d/;
+        updateIndicator('number', numberRegex.test(password));
+
+        // Check for special character
+        const specialCharRegex = /[$@$!%*?&]/;
+        updateIndicator('specialChar', specialCharRegex.test(password));
+    });
+
+    function updateIndicator(indicator, condition) {
+    indicators[indicator].innerHTML = condition ? '<label style="color:green;">V</label>' : '<label style="color:red;">X</label>';
+}
+
+
+
+
+</script>
 
 </html>

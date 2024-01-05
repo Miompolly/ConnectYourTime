@@ -7,6 +7,8 @@ use App\Models\Users;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Http\Request;
+
 
 class UsersController extends Controller
 {
@@ -54,7 +56,7 @@ class UsersController extends Controller
         $users->firstname = $request->firstname;
         $users->lastname = $request->lastname;
         $users->email = $request->email;
-        $users->password = $request->password;
+        $users->password = bcrypt($request->password);
         $users->save();
 
         return redirect('/login')->with('message', 'User created successfully!');
@@ -66,5 +68,16 @@ class UsersController extends Controller
         Auth::logout();
 
         return redirect('/');
+    }
+
+
+    public function login(Request $request)
+    {
+        $credentials=$request->only('email','password');
+        if(Auth::attempt($credentials)){
+            return redirect('/dashboard');
+        }
+
+        return redirect('/login')->with('error', 'Invalid credentials');
     }
 }

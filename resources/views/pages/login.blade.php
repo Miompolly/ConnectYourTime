@@ -33,13 +33,9 @@
             </div>
 
             <div class="mb-4">
-                @if ($errors->any())
+                @if (session('error'))
                     <div class="text-red-500 bg-red-200">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+                        {{ session('error') }}
                     </div>
                 @endif
 
@@ -49,44 +45,48 @@
                     </div>
                 @endif
             </div>
+            <form method="post" action="{{ url('login') }}" enctype="multipart/form-data">
+                @csrf
 
-            <div class=" w-full flex text-center  text-md py-2 mt-3">
+                <div class=" w-full flex text-center  text-md py-2 mt-3">
 
-                <label>Email</label><span class="text-red-700 font-bold px-2"> * </span>
+                    <label>Email</label><span class="text-red-700 font-bold px-2"> * </span>
 
-            </div>
-            <div class=" w-full flex text-center  text-md ">
-                <input type="email" class="border rounded w-full p-2 outline-none"name="email" id="email"
-                    placeholder="Enter your Email">
-            </div>
-            <div class=" w-full flex text-center  text-md py-2 mt-3">
-
-                <label>Password</label><span class="text-red-700 font-bold px-2"> * </span>
-
-            </div>
-            <div class=" w-full flex text-center  text-md ">
-                <input type="password" class="border rounded w-full p-2 outline-none"name="password" id="password"
-                    placeholder="Enter your Password">
-
-            </div>
-
-
-
-            <div class="w-full flex text-center text-md py-3">
-                <div class="flex items-center justify-between w-full">
-                    <label class="flex items-center">
-                        <input type="checkbox" class="mr-2"> Remember me
-                    </label>
-                    <a href="/forgot-password" class="text-blue-700">Forgot password?</a>
                 </div>
-            </div>
+                <div class=" w-full flex text-center  text-md ">
+                    <input type="email" class="border rounded w-full p-2 outline-none"name="email" id="email"
+                        placeholder="Enter your Email">
+                </div>
+                <div class=" w-full flex text-center  text-md py-2 mt-3">
+
+                    <label>Password</label><span class="text-red-700 font-bold px-2"> * </span>
+
+                </div>
+                <div class=" w-full flex text-center  text-md ">
+                    <input type="password" class="border rounded w-full p-2 outline-none"name="password" id="password"
+                        placeholder="Enter your Password">
+
+                </div>
 
 
-            <div class=" w-full flex text-center  text-md py-3 ">
-                <a type="submit" class="button rounded bg-bgcolor text-white w-28 h-9 items-center flex justify-center">
-                    Sign In
-                </a>
-            </div>
+
+                <div class="w-full flex text-center text-md py-3">
+                    <div class="flex items-center justify-between w-full">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2"> Remember me
+                        </label>
+                        <a href="/forgot-password" class="text-blue-700">Forgot password?</a>
+                    </div>
+                </div>
+
+
+                <div class=" w-full flex text-center  text-md py-3 ">
+                    <button type="submit"
+                        class="button rounded bg-bgcolor text-white w-28 h-9 items-center flex justify-center">
+                        Sign In
+                    </button>
+                </div>
+            </form>
             <div class=" w-full flex text-center  text-md py-3  gap-3">
                 <label>Don't have Account ?</label><a href="/signup" class="text-blue-700">Register Here</a>
             </div>

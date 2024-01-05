@@ -40,7 +40,8 @@ Route::get('/dashboard', function () {
 });
 
 Route::post('/register', [UsersController::class, 'create']);
-// In routes/web.php or routes/api.php
+Route::post('/login', [UsersController::class, 'login']);
+
 
 Route::get('/googleLogin', [UsersController::class, 'googleLogin']);
 Route::get('/auth/google/callback', [UsersController::class, 'handleGoogleCallback']);
