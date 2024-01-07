@@ -26,13 +26,15 @@
 
         <nav class="w-full h-20 bg-bgcolor flex fixed top-0 items-center px-5 justify-between">
             <div>
-                <img src="images/logo.png" class="font-bold h-10">
+              <a href="/dashoard">
+                  <img src="images/logo.png" class="font-bold h-10">
+              </a>
             </div>
 
             @auth
             <div class="text-white flex gap-4 items-center">
                 <img src="{{ auth()->user()->avatar_url }}" alt="Profile Image" class="rounded-full h-10 w-10 object-cover">
-                <label class="button">{{ auth()->user()->firstname }} {{ auth()->user()->lastname }}</label>
+                <label class="button">{{ auth()->user()->firstname }}</label>
                 <a href="{{ route('logout') }}" class="button rounded bg-green-500 w-28 h-9 items-center flex justify-center">Logout</a>
             </div>
             @endauth

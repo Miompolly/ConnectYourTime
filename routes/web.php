@@ -35,6 +35,7 @@ Route::get('/price', function () {
 Route::get('/why', function () {
     return view('pages.why');
 });
+
 Route::get('/dashboard', function () {
     return view('pages.dashboard');
 });

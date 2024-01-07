@@ -24,14 +24,16 @@
 
         <nav class="w-full h-20 bg-bgcolor flex fixed  top-0  items-center px-5 justify-between">
             <div>
-                <img src="images/logo.png" class="font-bold h-10">
+              <a href="/">
+                  <img src="images/logo.png" class="font-bold h-10">
+              </a>
             </div>
             <div class="text-white font-sans w-1/3 flex justify-around gap-1">
                 <a href="/" class="hover:text-gray-300">Home</a>
                 <a href="/docs" class="hover:text-gray-300">Documentation</a>
                 <a href="/blogs" class="hover:text-gray-300">Blogs</a>
                 <a href="/why" class="hover:text-gray-300">Why Us</a>
-                <a href="/Price" class="hover:text-gray-300">Price</a>
+                <a href="/price" class="hover:text-gray-300">Price</a>
             </div>
 
             <div class="text-white flex gap-4">
