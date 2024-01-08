@@ -55,7 +55,8 @@
                 </div>
                 <div class=" w-full flex text-center  text-md ">
                     <input type="email" class="border rounded w-full p-2 outline-none"name="email" id="email"
-                        placeholder="Enter your Email">
+                        placeholder="Enter your Email"
+                        @if (@isset($_COOKIE['email'])) value="{{ $_COOKIE['email'] }}" @endif>
                 </div>
                 <div class=" w-full flex text-center  text-md py-2 mt-3">
 
@@ -64,7 +65,8 @@
                 </div>
                 <div class=" w-full flex text-center  text-md ">
                     <input type="password" class="border rounded w-full p-2 outline-none"name="password" id="password"
-                        placeholder="Enter your Password">
+                        placeholder="Enter your Password"
+                        @if (@isset($_COOKIE['password'])) value="{{ $_COOKIE['password'] }}" @endif>
 
                 </div>
 
@@ -82,7 +84,9 @@
 
                 <div class=" w-full flex text-center  text-md py-3 ">
                     <button type="submit"
-                        class="button rounded bg-bgcolor text-white w-28 h-9 items-center flex justify-center">
+                        class="button rounded bg-bgcolor text-white w-28 h-9 items-center flex justify-center"
+                         @if (@isset($_COOKIE['email'])) checked="" @endif
+                        >
                         Sign In
                     </button>
                 </div>

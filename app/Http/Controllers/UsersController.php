@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Auth\AuthenticationException;
 
 
 class UsersController extends Controller
@@ -72,12 +74,22 @@ class UsersController extends Controller
 
 
     public function login(Request $request)
-    {
-        $credentials=$request->only('email','password');
-        if(Auth::attempt($credentials)){
+{
+    try {
+        $credentials = $request->only('email', 'password');
+
+        $remember = $request->has('remember');
+
+        if (Auth::attempt($credentials, $remember)) {
             return redirect('/dashboard');
         }
-
-        return redirect('/login')->with('error', 'Invalid credentials');
+    } catch (AuthenticationException $exception) {
+        return redirect('/login')->with('error', 'Authentication failed');
+    } catch (ValidationException $exception) {
+        return redirect('/login')->with('error', $exception->getMessage());
     }
+
+    return redirect('/login')->with('error', 'Invalid credentials');
+}
+
 }
