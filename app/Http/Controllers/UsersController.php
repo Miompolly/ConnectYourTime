@@ -78,6 +78,7 @@ class UsersController extends Controller
     try {
         $credentials = $request->only('email', 'password');
 
+        // Check if "Remember Me" is selected in the request
         $remember = $request->has('remember');
 
         if (Auth::attempt($credentials, $remember)) {

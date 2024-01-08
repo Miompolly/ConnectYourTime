@@ -21,56 +21,50 @@
 </head>
 
 
-<body class="bg-cover  bg-bgcolor ">
-    <div class="main  h-screen ">
+<body class="bg-cover">
+    <div class="main h-screen flex flex-col">
 
-        <nav class="w-full h-20 bg-bgcolor flex fixed top-0 items-center px-5 justify-between">
+        <nav class="w-full h-20 bg-black flex items-center px-5 justify-between">
             <div>
-              <a href="/dashoard">
-                  <img src="images/logo.png" class="font-bold h-10">
-              </a>
+                <a href="/dashboard">
+                    <img src="images/logo.png" class="font-bold h-10">
+                </a>
             </div>
 
             @auth
-            <div class="text-white flex gap-4 items-center">
-                <img src="{{ auth()->user()->avatar_url }}" alt="Profile Image" class="rounded-full h-10 w-10 object-cover">
-                <label class="button">{{ auth()->user()->firstname }}</label>
-                <a href="{{ route('logout') }}" class="button rounded bg-green-500 w-28 h-9 items-center flex justify-center">Logout</a>
+            <div class="text-white flex gap-4 items-center ">
+                <div class="relative group ">
+                    <img src="images/logo.png" class="font-bold h-8">
+                </div>
+                <div class="relative group ">
+                    <img src="images/logo.png" class="font-bold h-8">
+                </div>
+                <div class="relative group w-44">
+                    <label class="flex items-center focus:outline-none">
+                        <img src="{{ auth()->user()->avatar_url }}" alt="Profile Image" class="rounded-full h-10 w-10 object-cover cursor-pointer">
+                        <span class="ml-2">{{ auth()->user()->firstname }}</span>
+                    </label>
+
+                    <div class="absolute hidden group-hover:block bg-white mt-2 py-2 px-4 rounded shadow-lg">
+                        <a href="#" class="block text-gray-800 hover:underline">Profile Settings</a>
+                        <a href="{{ route('logout') }}" class="block text-red-500 hover:underline mt-2">Logout</a>
+                    </div>
+                </div>
             </div>
             @endauth
-
         </nav>
 
-        <div class="text-bgcolor  font-sans text-base w-full h-7 mt-20">
 
-            <div class=" flex h-full bg-white items-center">
-
-
-                <div class=" bg-white h-screen w-1/6 ">
-                    <div class="flex items-center justify-center">
-
-                        <a href="/dashboard">Add product</a>
-                    </div>
-                    <div class="flex items-center justify-center">
-
-                        <a href="/read">All Products</a>
-                    </div>
-                    <div class="flex items-center justify-center">
-
-                        <a href="/allusers">All Users</a>
-                    </div>
-
-                </div>
-
-                <div class=" w-5/6 h-full ">
-                    @yield('content')
-                </div>
+        <div class="flex flex-1">
+            <div class="bg-black w-1/5">
 
             </div>
 
+            <div class="text-bgcolor flex-1">
+
+            </div>
         </div>
 
     </div>
 </body>
-
 </html>
